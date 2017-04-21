@@ -28,7 +28,7 @@ public class NetworkListen extends Thread {
 	}
 
 
-	public void traitements(NetworkCreateUDP serveur) throws IOException {
+	private void traitements(NetworkCreateUDP serveur) throws IOException {
 		FileWriter tabUser = new FileWriter("tabUser");
 		try {
 			while (true) {

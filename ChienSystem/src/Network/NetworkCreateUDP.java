@@ -13,9 +13,6 @@ import java.net.Socket;
 public class NetworkCreateUDP extends ServerSocket{
 	private DatagramSocket serveur;
 	private Socket sockCreer;
-	private ObjectOutputStream out;
-	private ObjectInputStream in;
-	private  int portControl; //port pour le serveur 
 
 	public NetworkCreateUDP(int portControl) throws IOException{
 		try {
@@ -30,9 +27,7 @@ public class NetworkCreateUDP extends ServerSocket{
 	private void init(int port) throws IOException {
 		this.serveur = new DatagramSocket(port);
 	}
-	
-	
-	
+
 	public DatagramSocket getServeur() {
 		return serveur;
 	}
