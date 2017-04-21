@@ -6,6 +6,7 @@ import java.net.InetAddress;
 /**
  * Created by FatePc on 3/25/2017.
  */
+@SuppressWarnings("serial")
 public class ControlMessage implements Serializable {
 
     private String userName;
