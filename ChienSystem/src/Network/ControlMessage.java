@@ -1,4 +1,4 @@
-package ChienSystem;
+package Network;
 
 import java.io.Serializable;
 import java.net.InetAddress;
