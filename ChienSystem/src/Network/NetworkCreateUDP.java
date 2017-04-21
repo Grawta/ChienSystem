@@ -29,8 +29,6 @@ public class NetworkCreateUDP extends ServerSocket{
 
 	private void init(int port) throws IOException {
 		this.serveur = new DatagramSocket(port);
-		this.in = recupObjectInputStream();
-		this.out = recupObjectOutputStream();
 	}
 	
 	
@@ -43,20 +41,8 @@ public class NetworkCreateUDP extends ServerSocket{
 		return sockCreer;
 	}
 
-	public int getPortControl() {
-		return portControl;
-	}
 
-	public ObjectInputStream recupeObjectInputStream()throws IOException{
-		return this.in;
-	}
-	
-	public ObjectOutputStream recupeObjectOutputStream()throws IOException{
-		return this.out;
-	}
-
-	
-	private ObjectInputStream recupObjectInputStream() {
+	public ObjectInputStream recupObjectInputStream() {
         byte[] incomingData = new byte[1024];
        DatagramPacket incomingPacket = new DatagramPacket(incomingData, incomingData.length);
             try {
@@ -71,7 +57,7 @@ public class NetworkCreateUDP extends ServerSocket{
             }
         }
     
-	private ObjectOutputStream recupObjectOutputStream() throws IOException{
+	public ObjectOutputStream recupObjectOutputStream() throws IOException{
 		int data = 1024;
 		ByteArrayOutputStream in = new ByteArrayOutputStream(data);
 		ObjectOutputStream os = new ObjectOutputStream(in);

@@ -32,7 +32,7 @@ public class NetworkListen extends Thread {
 		FileWriter tabUser = new FileWriter("tabUser");
 		try {
 			while (true) {
-				ObjectInputStream testHello = serveur.recupeObjectInputStream();
+				ObjectInputStream testHello = serveur.recupObjectInputStream();
 				ControlMessage message = (ControlMessage) testHello.readObject();
 
 				if (message.getData().equals("hello")) {
@@ -77,7 +77,7 @@ public class NetworkListen extends Thread {
 	
 	private void envoiSocketCreate(NetworkCreateUDP serveur ,int port) throws IOException{
 		ControlMessage message = new ControlMessage(Login.getLogin(), InetAddress.getLocalHost(), port, "socket_created");
-		ObjectOutputStream outputStream = serveur.recupeObjectOutputStream();
+		ObjectOutputStream outputStream = serveur.recupObjectOutputStream();
 		outputStream.writeObject(message);
 	}
 	
