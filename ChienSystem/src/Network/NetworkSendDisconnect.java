@@ -11,7 +11,7 @@ import ChienSystem.Login;
 public class NetworkSendDisconnect {
 
 	public void envoieDisconnect(NetworkCreateUDP global) throws IOException{
-		ControlMessage message = new ControlMessage(Login.getLogin(), InetAddress.getLocalHost(), 15530, "disconect");
+		ControlMessage message = new ControlMessage(Login.getLogin(), SelfAddress.getLocalHostLANAddress(), 15530, "disconect");
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ObjectOutputStream os = null;
 		global.getServeur().setBroadcast(true);

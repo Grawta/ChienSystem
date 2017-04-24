@@ -82,7 +82,7 @@ public class NetworkListen extends Thread {
 	}
 
 	private void envoiSocketCreate(NetworkCreateUDP serveur, int port, InetAddress ip) throws IOException {
-		ControlMessage message = new ControlMessage(Login.getLogin(), InetAddress.getLocalHost(), port,
+		ControlMessage message = new ControlMessage(Login.getLogin(), SelfAddress.getLocalHostLANAddress(), port,
 				"socket_created");
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ObjectOutputStream os = null;
