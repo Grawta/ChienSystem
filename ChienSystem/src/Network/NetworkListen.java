@@ -35,7 +35,7 @@ public class NetworkListen extends Thread {
 			while (true) {
 				ObjectInputStream testHello = serveur.recupObjectInputStream();
 				ControlMessage message = (ControlMessage) testHello.readObject();
-				if ((message.getUserAdresse() != InetAddress.getLocalHost())) {
+				if ((message.getUserAdresse() != SelfAddress.getLocalHostLANAddress())) {
 					if (message.getData().equals("hello")) {
 						if (userGood(message.getUserName())) {
 							ServerSocket socket = new ServerSocket(0);
