@@ -62,7 +62,7 @@ public class ImagePanelA extends JPanel {
         convLabel.setFont(new Font("Serif", Font.ITALIC, 14));
         this.add(convLabel, gbc);
 
-        convTextField.setPreferredSize(new Dimension(300, 400));      
+      //  convTextField.setPreferredSize(new Dimension(300, 400));      
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.fill = GridBagConstraints.BOTH;
@@ -70,6 +70,7 @@ public class ImagePanelA extends JPanel {
         gbc.weightx = 0.8;
         gbc.weighty = 0.6;
 		convTextField.setEditable(false);
+		scrollConv.setPreferredSize(new Dimension(300, 400));
         this.add(scrollConv,gbc);
 
      //   this.add(convTextField, gbc);
@@ -83,7 +84,7 @@ public class ImagePanelA extends JPanel {
         gbc.insets = new Insets(0, 0, 0, 0);
         this.add(sendLabel, gbc);
 
-        sendTextField.setPreferredSize(new Dimension(200, 200));
+      //  sendTextField.setPreferredSize(new Dimension(200, 200));
         gbc.gridx = 1;
         gbc.anchor = GridBagConstraints.CENTER;
         //gbc.gridwidth =GridBagConstraints.REMAINDER;
@@ -91,6 +92,7 @@ public class ImagePanelA extends JPanel {
         gbc.insets = new Insets(10, 10, 15, 10);
         gbc.weighty = 0.4;
         gbc.weightx = 0.4;
+        scrollSend.setPreferredSize(new Dimension(200, 200));
     	this.add(scrollSend,gbc);
        // this.add(sendTextField, gbc);
 

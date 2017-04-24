@@ -38,7 +38,7 @@ public class NetworkListen extends Thread {
 				if ((message.getUserAdresse() != InetAddress.getLocalHost())) {
 					if (message.getData().equals("hello")) {
 						if (userGood(message.getUserName())) {
-							ServerSocket socket = new ServerSocket();
+							ServerSocket socket = new ServerSocket(0);
 							int port = socket.getLocalPort();
 							InetAddress ip = message.getUserAdresse();
 							envoiSocketCreate(serveur, port, ip);
@@ -49,7 +49,7 @@ public class NetworkListen extends Thread {
 						} else {
 							// ErreurPseudo();
 						}
-					} else if (message.getData().equals("socket_create")) {
+					} else if (message.getData().equals("socket_created")) {
 						Socket socket = new Socket(message.getUserAdresse(), message.getPort());
 						EcritureBufferFichier.ecritureFichier(tabUser, message.getPort() + " " + message.getUserName());
 					} else if (message.getData().equals("disconnect")) {
@@ -83,13 +83,15 @@ public class NetworkListen extends Thread {
 
 	private void envoiSocketCreate(NetworkCreateUDP serveur, int port, InetAddress ip) throws IOException {
 		ControlMessage message = new ControlMessage(Login.getLogin(), InetAddress.getLocalHost(), port,
-				"socket_create");
+				"socket_created");
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ObjectOutputStream os = null;
+		os = new ObjectOutputStream(outputStream);
 		os.writeObject(message);
 		byte[] buffer = outputStream.toByteArray();
 		DatagramPacket sendPacket = new DatagramPacket(buffer, buffer.length, ip, serveur.getServeur().getLocalPort());
 		serveur.getServeur().send(sendPacket);
+		os.flush();
 	}
 
 }
