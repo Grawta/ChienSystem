@@ -55,7 +55,6 @@ public class NetworkListen extends Thread {
 					} else if (message.getData().equals("disconnect")) {
 
 					}
-
 				}
 			}
 		} catch (Exception e) {
