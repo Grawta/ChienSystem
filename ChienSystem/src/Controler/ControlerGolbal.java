@@ -1,6 +1,8 @@
 package Controler;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -13,9 +15,10 @@ import Network.Message;
 import Network.NetworkGlobal;
 import View.BackGroundImage;
 import View.IhmLogin;
+import View.IhmLoginStart;
 
-public class ControlerGolbal extends Thread {
-	private Login login;
+public class ControlerGolbal extends Thread implements ActionListener{
+	
 
 	public ControlerGolbal() {
 		this.start();
@@ -33,7 +36,9 @@ public class ControlerGolbal extends Thread {
 		if (src == IhmLogin.getConnectButton()) {
 			try {
 				NetworkGlobal network = new NetworkGlobal();
-				this.login = new Login(IhmLogin.getFieldLog().getText());
+				Login.setLogin(IhmLogin.getFieldLog().getText());
+				IhmLoginStart.getFrameNew().dispose();
+				BackGroundImage backGround = new BackGroundImage();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -52,7 +57,7 @@ public class ControlerGolbal extends Thread {
 	}
 
 	private void sendRequest(String text, String pseudo) throws UnknownHostException {
-		Message message = new Message(Message.DataType.Text, text,pseudo, this.login.getLogin());
+		Message message = new Message(Message.DataType.Text, text,pseudo, Login.getLogin());
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ObjectOutputStream os = socket.getOut();
 		try {

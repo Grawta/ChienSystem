@@ -33,10 +33,13 @@ public class UserList {
 	}
 	
 	public User findUser(String pseudo){
-		User user = null;
-		
-		
-		return user;
+		User utilisateur = null;
+		for (User user: this.tabUser) {
+			 if(user.getName().equals(pseudo)){
+				 utilisateur= user;
+			 }
+		}
+		return utilisateur;
 	}
 
 }

@@ -7,9 +7,6 @@ public class Login {
 
 	private static String login;
 
-	public Login(String pseudo ) throws IOException {
-		this.login = pseudo;
-	}
 
 	private String lecturePseudo(BufferedReader reader) throws IOException {
 		String line = reader.readLine();
@@ -18,6 +15,9 @@ public class Login {
 
 	public static String getLogin() {
 		return login;
+	}
+	public static void setLogin(String pseudo){
+		login =pseudo;
 	}
 
 }

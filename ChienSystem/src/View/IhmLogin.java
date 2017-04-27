@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import java.awt.GridBagLayout;
 
 @SuppressWarnings("serial")
-public class IhmLogin extends JPanel {
+public class IhmLogin extends JPanel{
 	private static JTextField fieldLog;
 	private static JButton connectButton;
 	private GridBagConstraints gbc;
