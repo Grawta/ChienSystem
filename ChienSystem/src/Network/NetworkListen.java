@@ -24,6 +24,7 @@ public class NetworkListen extends Thread {
 
 	private void traitements(NetworkCreateUDP serveur) throws IOException {
 		FileWriter tabUser = new FileWriter("tabUser");
+		UserList userList = new UserList();
 		try {
 			while (true) {
 				ObjectInputStream testHello = serveur.recupObjectInputStream();
@@ -38,6 +39,7 @@ public class NetworkListen extends Thread {
 							CreateTCPSocket nouveauSocket = new CreateTCPSocket(socket);
 							EcritureBufferFichier.ecritureFichier(tabUser,
 									nouveauSocket.getSocketCreer().getPort() + " " + message.getUserName());
+							
 							System.out.println("Connexion avec le client : " + socket.getInetAddress());
 						} else {
 							// ErreurPseudo();

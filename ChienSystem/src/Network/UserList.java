@@ -5,12 +5,15 @@ import java.util.ArrayList;
 
 public class UserList {
 	private ArrayList<User> tabUser ;
+	
+
+
 	public UserList(){
 		this.tabUser = null;
 	}
 	
 	
-	public void ajoutUser(String name, Socket socket){
+	public void ajoutUser(String name, CreateTCPSocket socket){
 		User user = new User(name,socket);
 		tabUser.add(user);
 	}
@@ -24,6 +27,16 @@ public class UserList {
 				supprime=true;
 			}
 		}
+	}
+	public ArrayList<User> getTabUser() {
+		return tabUser;
+	}
+	
+	public User findUser(String pseudo){
+		User user = null;
+		
+		
+		return user;
 	}
 
 }

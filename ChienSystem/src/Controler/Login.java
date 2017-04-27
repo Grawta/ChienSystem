@@ -7,8 +7,8 @@ public class Login {
 
 	private static String login;
 
-	public Login(BufferedReader reader) throws IOException {
-		this.login = lecturePseudo(reader);
+	public Login(String pseudo ) throws IOException {
+		this.login = pseudo;
 	}
 
 	private String lecturePseudo(BufferedReader reader) throws IOException {

@@ -17,8 +17,20 @@ import javax.swing.*;
 
 public class BackGroundImage {
 	public static final String IMAGE_PATH = "/home/nathan/Images/background.jpg";
+	private static ImagePanelA imagePanel;
 	
-	
+	public static ImagePanelA getImagePanel() {
+		return imagePanel;
+	}
+
+
+
+	public void setImagePanel(ImagePanelA imagePanel) {
+		this.imagePanel = imagePanel;
+	}
+
+
+
 	public BackGroundImage() {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -37,7 +49,7 @@ public class BackGroundImage {
 			//ImageIcon url = new ImageIcon(IMAGE_PATH);
 			image = ImageIO.read(new File("/home/nathan/Images/background.jpg"));
 			// JLabel label = new JLabel(new ImageIcon(image));
-			ImagePanelA imagePanel = new ImagePanelA(image);
+			this.imagePanel = new ImagePanelA(image);
 			JFrame frame = new JFrame("Chien Sytem !!");
 			frame.getContentPane().add(imagePanel);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

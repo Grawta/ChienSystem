@@ -13,8 +13,8 @@ import java.awt.GridBagLayout;
 
 @SuppressWarnings("serial")
 public class IhmLogin extends JPanel {
-	private JTextField fieldLog;
-	private JButton connectButton;
+	private static JTextField fieldLog;
+	private static JButton connectButton;
 	private GridBagConstraints gbc;
 
 	public IhmLogin() {
@@ -41,7 +41,7 @@ public class IhmLogin extends JPanel {
 
 	}
 
-	public JTextField getFieldLog() {
+	public static JTextField getFieldLog() {
 		return fieldLog;
 	}
 
@@ -49,7 +49,7 @@ public class IhmLogin extends JPanel {
 		this.fieldLog = fieldLog;
 	}
 
-	public JButton getConnectButton() {
+	public static JButton getConnectButton() {
 		return connectButton;
 	}
 
