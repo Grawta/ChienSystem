@@ -15,6 +15,8 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import Controler.ControlerGolbal;
+
 public class BackGroundImage {
 	public static final String IMAGE_PATH = "/home/nathan/Images/background.jpg";
 	private static ImagePanelA imagePanel;
@@ -31,10 +33,10 @@ public class BackGroundImage {
 
 
 
-	public BackGroundImage() {
+	public BackGroundImage(ControlerGolbal controler) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				createAndShowUI();
+				createAndShowUI(controler);
 			}
 		});
 		
@@ -43,7 +45,7 @@ public class BackGroundImage {
 	
 	
 	/*Fonction affichage GUI*/
-	private void createAndShowUI() {
+	private void createAndShowUI(ControlerGolbal controler) {
 		Image image = null;
 		try {
 			//ImageIcon url = new ImageIcon(IMAGE_PATH);

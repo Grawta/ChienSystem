@@ -9,6 +9,9 @@ import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Controler.ControlerGolbal;
+
 import java.awt.GridBagLayout;
 
 @SuppressWarnings("serial")
@@ -17,7 +20,7 @@ public class IhmLogin extends JPanel{
 	private static JButton connectButton;
 	private GridBagConstraints gbc;
 
-	public IhmLogin() {
+	public IhmLogin( ControlerGolbal controler) {
 		setLayout(new GridBagLayout());
 		this.setFieldLog(new JTextField("Entrez votre Login"));
 		this.setConnectButton(new JButton("Connect"));
@@ -37,6 +40,7 @@ public class IhmLogin extends JPanel{
         gbc.anchor = GridBagConstraints.LINE_START;
         gbc.fill = GridBagConstraints.BOTH;
         gbc.insets = new Insets(10, 0, 0, 0);
+        connectButton.addActionListener(controler);
         this.add(connectButton, gbc);
 
 	}

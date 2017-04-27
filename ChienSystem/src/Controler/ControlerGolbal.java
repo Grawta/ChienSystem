@@ -22,8 +22,8 @@ public class ControlerGolbal extends Thread implements ActionListener{
 	private IhmLoginStart ihmLogin;
 	private NetworkGlobal network;
 	private BackGroundImage backGround;
-	public ControlerGolbal(IhmLoginStart ihmLogin) {
-		this.ihmLogin = new IhmLoginStart();
+	public ControlerGolbal() {
+		this.ihmLogin = new IhmLoginStart(this);
 		this.network = null;
 		this.backGround =null;
 		this.start();
@@ -43,7 +43,7 @@ public class ControlerGolbal extends Thread implements ActionListener{
 				network = new NetworkGlobal();
 				Login.setLogin(IhmLogin.getFieldLog().getText());
 				this.ihmLogin.getFrameNew().dispose();
-				this.backGround = new BackGroundImage();
+				this.backGround = new BackGroundImage(this);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
