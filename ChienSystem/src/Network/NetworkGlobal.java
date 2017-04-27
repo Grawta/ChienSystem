@@ -7,6 +7,7 @@ public class NetworkGlobal {
 	private NetworkCreateUDP serveur ;
 	public NetworkGlobal() throws IOException{
 		serveur = new NetworkCreateUDP(15530);
+		NetworkSendHello hello = new NetworkSendHello(serveur);
 		this.listen = new NetworkListen(serveur);
 		listen.start();
 	}

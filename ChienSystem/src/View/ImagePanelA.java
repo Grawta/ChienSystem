@@ -44,7 +44,7 @@ public class ImagePanelA extends JPanel {
 		convLabel = new JLabel("Conv :");
 		sendLabel = new JButton("Send :");
 		userLabel = new JLabel("User :");
-
+		defaultList = new DefaultListModel<String>();
 		convTextField = new JTextArea("Historique de la conversation");
 		sendTextField = new JTextArea("Ecrire ici");
 		userTextField = new JList(defaultList);
