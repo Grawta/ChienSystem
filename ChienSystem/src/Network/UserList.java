@@ -18,6 +18,8 @@ public class UserList {
 		tabUser.add(user);
 	}
 	
+
+	
 	public void removeUser(String name){
 		int i=0;
 		boolean supprime =false;
@@ -37,6 +39,7 @@ public class UserList {
 		for (User user: this.tabUser) {
 			 if(user.getName().equals(pseudo)){
 				 utilisateur= user;
+				 break;
 			 }
 		}
 		return utilisateur;

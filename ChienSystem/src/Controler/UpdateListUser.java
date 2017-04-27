@@ -9,7 +9,7 @@ import Network.UserList;
 
 public class UpdateListUser {
 	
-	public void miseAJour(DefaultListModel<String> listModel, UserList tabUser){
+	public static void miseAJour(DefaultListModel<String> listModel, UserList tabUser){
 		ArrayList<User> tableauUser = tabUser.getTabUser();
 		for (int j = 0; j <tableauUser.size(); j++) {
 			User user = tableauUser.get(j);

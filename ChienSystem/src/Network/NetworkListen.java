@@ -11,15 +11,23 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import ChienSystem.*;
 import Controler.*;
+import View.BackGroundImage;
+import View.ImagePanelA;
 
 public class NetworkListen extends Thread {
 
 	/* Creation de socket pour chaque client */
 
 	private NetworkCreateUDP serveur;
+	private UserList userList;
+
+	public UserList getuserList() {
+		return userList;
+	}
 
 	public NetworkListen(NetworkCreateUDP serveur) throws IOException {
 		this.serveur = serveur;
+		this.userList = new UserList();
 	}
 
 	private void traitements(NetworkCreateUDP serveur) throws IOException {
@@ -37,17 +45,19 @@ public class NetworkListen extends Thread {
 							InetAddress ip = message.getUserAdresse();
 							envoiSocketCreate(serveur, port, ip);
 							CreateTCPSocket nouveauSocket = new CreateTCPSocket(socket);
-							EcritureBufferFichier.ecritureFichier(tabUser,
-									nouveauSocket.getSocketCreer().getPort() + " " + message.getUserName());
+							this.userList.ajoutUser(message.getUserName(), nouveauSocket);
+							UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
 							
 							System.out.println("Connexion avec le client : " + socket.getInetAddress());
 						} else {
 							// ErreurPseudo();
 						}
 					} else if (message.getData().equals("socket_created")) {
-						Socket socket = new Socket(message.getUserAdresse(), message.getPort());
-						EcritureBufferFichier.ecritureFichier(tabUser, message.getPort() + " " + message.getUserName());
+						CreateTCPSocket socket = new CreateTCPSocket(message.getUserAdresse(), message.getPort());
+						this.userList.ajoutUser(message.getUserName(), socket);
+						UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
 					} else if (message.getData().equals("disconnect")) {
+						this.userList.removeUser(message.getUserName());
 
 					}
 				}

@@ -13,14 +13,19 @@ import Network.ControlMessage;
 import Network.CreateTCPSocket;
 import Network.Message;
 import Network.NetworkGlobal;
+import Network.User;
 import View.BackGroundImage;
 import View.IhmLogin;
 import View.IhmLoginStart;
 
 public class ControlerGolbal extends Thread implements ActionListener{
-	
-
-	public ControlerGolbal() {
+	private IhmLoginStart ihmLogin;
+	private NetworkGlobal network;
+	private BackGroundImage backGround;
+	public ControlerGolbal(IhmLoginStart ihmLogin) {
+		this.ihmLogin = new IhmLoginStart();
+		this.network = null;
+		this.backGround =null;
 		this.start();
 	}
 
@@ -35,10 +40,10 @@ public class ControlerGolbal extends Thread implements ActionListener{
 		Object src = arg0.getSource();
 		if (src == IhmLogin.getConnectButton()) {
 			try {
-				NetworkGlobal network = new NetworkGlobal();
+				network = new NetworkGlobal();
 				Login.setLogin(IhmLogin.getFieldLog().getText());
-				IhmLoginStart.getFrameNew().dispose();
-				BackGroundImage backGround = new BackGroundImage();
+				this.ihmLogin.getFrameNew().dispose();
+				this.backGround = new BackGroundImage();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -51,15 +56,14 @@ public class ControlerGolbal extends Thread implements ActionListener{
 			} catch (UnknownHostException e) {
 				e.printStackTrace();
 			}
-		} else {
-
 		}
 	}
 
 	private void sendRequest(String text, String pseudo) throws UnknownHostException {
 		Message message = new Message(Message.DataType.Text, text,pseudo, Login.getLogin());
-		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-		ObjectOutputStream os = socket.getOut();
+		User user = this.network.getListen().getuserList().findUser(pseudo);
+		
+		ObjectOutputStream os = user.getSocket().getOut();
 		try {
 			os.writeObject(message);
 			os.flush();
