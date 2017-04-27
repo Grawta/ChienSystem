@@ -31,7 +31,6 @@ public class NetworkListen extends Thread {
 	}
 
 	private void traitements(NetworkCreateUDP serveur) throws IOException {
-		UserList userList = new UserList();
 		try {
 			while (true) {
 				ObjectInputStream testHello = serveur.recupObjectInputStream();
@@ -52,8 +51,15 @@ public class NetworkListen extends Thread {
 							// ErreurPseudo();
 						}
 					} else if (message.getData().equals("socket_created")) {
+						while(BackGroundImage.getImagePanel()==null){sleep(1);}
 						CreateTCPSocket socket = new CreateTCPSocket(message.getUserAdresse(), message.getPort());
+						if (socket==null){System.out.println("SOCKET NUL");}
+						System.out.println("connection de "+message.getUserName());
 						this.userList.ajoutUser(message.getUserName(), socket);
+						this.userList.print();
+						System.out.println("socket cre");
+						if (userList==null){System.out.println("userList NUL");}
+						if (BackGroundImage.getImagePanel()==null){System.out.println("imagePanel NUL");}
 						UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
 					} else if (message.getData().equals("disconnect")) {
 						this.userList.removeUser(message.getUserName());

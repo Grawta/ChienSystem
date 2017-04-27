@@ -31,7 +31,7 @@ public class CreateTCPSocket extends Thread{
 	}
 
 	public CreateTCPSocket(InetAddress address, int port) throws IOException {
-		Socket socket = new Socket(address, port);
+		socketCreer = new Socket(address, port);
 		try {
 			type = false;
 			this.start();

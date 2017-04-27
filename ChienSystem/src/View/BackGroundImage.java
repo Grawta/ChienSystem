@@ -33,7 +33,7 @@ public class BackGroundImage {
 
 
 
-	public BackGroundImage(ControlerGolbal controler) {
+	public BackGroundImage(final ControlerGolbal controler) {
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowUI(controler);
@@ -49,9 +49,11 @@ public class BackGroundImage {
 		Image image = null;
 		try {
 			//ImageIcon url = new ImageIcon(IMAGE_PATH);
-			image = ImageIO.read(new File("/home/nathan/Images/background.jpg"));
+			image = ImageIO.read(new File("/home/smini/Téléchargements/images1.jpeg"));
 			// JLabel label = new JLabel(new ImageIcon(image));
 			this.imagePanel = new ImagePanelA(image);
+			System.out.println("IMAGE PANEL CRE");
+			if (imagePanel==null){System.out.println("imagePanel NUL");}
 			JFrame frame = new JFrame("Chien Sytem !!");
 			frame.getContentPane().add(imagePanel);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

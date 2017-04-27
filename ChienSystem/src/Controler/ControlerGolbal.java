@@ -34,10 +34,11 @@ public class ControlerGolbal implements ActionListener{
 		Object src = arg0.getSource();
 		if (src == IhmLogin.getConnectButton()) {
 			try {
-				network = new NetworkGlobal();
 				Login.setLogin(IhmLogin.getFieldLog().getText());
 				this.ihmLogin.getFrameNew().dispose();
 				this.backGround = new BackGroundImage(this);
+				network = new NetworkGlobal();				
+				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

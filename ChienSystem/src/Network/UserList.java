@@ -9,7 +9,7 @@ public class UserList {
 
 
 	public UserList(){
-		this.tabUser = null;
+		this.tabUser = new ArrayList<User>() ;
 	}
 	
 	
@@ -45,4 +45,9 @@ public class UserList {
 		return utilisateur;
 	}
 
+		public void print(){
+			for (User user: this.tabUser) {
+				System.out.println(user.getName() + user.getSocket().getSocketCreer().getLocalPort());
+				 }
+		}
 }
