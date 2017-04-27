@@ -18,7 +18,7 @@ import View.BackGroundImage;
 import View.IhmLogin;
 import View.IhmLoginStart;
 
-public class ControlerGolbal extends Thread implements ActionListener{
+public class ControlerGolbal implements ActionListener{
 	private IhmLoginStart ihmLogin;
 	private NetworkGlobal network;
 	private BackGroundImage backGround;
@@ -26,15 +26,9 @@ public class ControlerGolbal extends Thread implements ActionListener{
 		this.ihmLogin = new IhmLoginStart(this);
 		this.network = null;
 		this.backGround =null;
-		this.start();
 	}
 
-	public void run() {
-		while (true) {
-			ActionEvent arg0 = null;
-			actionPerformed(arg0);
-		}
-	}
+	
 
 	public void actionPerformed(ActionEvent arg0) {
 		Object src = arg0.getSource();
