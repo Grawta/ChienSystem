@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 
-import ChienSystem.Login;
+import Controler.Login;
 
 public class NetworkSendDisconnect {
 

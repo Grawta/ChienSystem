@@ -1,21 +1,23 @@
-package ChienSystem;
+package Controler;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 
 public class Login {
+
 	private static String login;
-	public Login(BufferedReader reader) throws IOException{
+
+	public Login(BufferedReader reader) throws IOException {
 		this.login = lecturePseudo(reader);
 	}
-	
-	private String lecturePseudo(BufferedReader reader) throws IOException{
+
+	private String lecturePseudo(BufferedReader reader) throws IOException {
 		String line = reader.readLine();
 		return line;
 	}
-	
-	public static String getLogin(){
+
+	public static String getLogin() {
 		return login;
 	}
-	
+
 }

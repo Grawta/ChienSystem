@@ -1,23 +1,16 @@
 package Network;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintStream;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import ChienSystem.*;
+import Controler.Login;
 
 public class NetworkListen extends Thread {
 
@@ -60,7 +53,6 @@ public class NetworkListen extends Thread {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public void run() {

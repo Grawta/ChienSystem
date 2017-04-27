@@ -1,4 +1,4 @@
-package ChienSystem;
+package View;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import ChienSystem.LectureBufferFichier;
 
 @SuppressWarnings("serial")
 public class ImagePanelA extends JPanel {

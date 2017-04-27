@@ -1,4 +1,4 @@
-package ChienSystem;
+package View;
 
 public class AjoutBoutonRadio {
 	
