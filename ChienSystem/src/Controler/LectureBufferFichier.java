@@ -1,4 +1,4 @@
-package ChienSystem;
+package Controler;
 
 import java.io.BufferedReader;
 import java.io.File;

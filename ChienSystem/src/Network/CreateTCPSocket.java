@@ -8,7 +8,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import ChienSystem.EcritureBufferFichier;
+import Controler.EcritureBufferFichier;
 
 public class CreateTCPSocket extends Thread{
 

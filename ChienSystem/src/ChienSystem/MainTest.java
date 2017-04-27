@@ -10,6 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+import Controler.EcritureBufferFichier;
+import Controler.LectureBufferFichier;
+
 public class MainTest {
 
 	public static void main(String[] args) throws IOException {

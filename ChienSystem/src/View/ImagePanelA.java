@@ -17,7 +17,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import ChienSystem.LectureBufferFichier;
+import Controler.LectureBufferFichier;
 
 @SuppressWarnings("serial")
 public class ImagePanelA extends JPanel {
