@@ -1,7 +1,5 @@
 package Network;
 
-import java.net.Socket;
-
 public class User {
 	private String name;
 	private CreateTCPSocket socket;

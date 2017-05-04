@@ -53,8 +53,7 @@ public class CreateTCPSocket extends Thread{
 				Message message = (Message) in.readObject();
 				String userPseudo = message.getSrcPseudo();
 				FileWriter fUserPseudo = new FileWriter(userPseudo);
-				EcritureBufferFichier.ecritureFichier(fUserPseudo, message.getData());
-
+				EcritureBufferFichier.ecritureFichier(fUserPseudo, userPseudo+" : "+ message.getData() + "\n");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception

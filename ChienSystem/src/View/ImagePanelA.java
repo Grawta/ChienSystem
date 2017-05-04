@@ -77,6 +77,8 @@ public class ImagePanelA extends JPanel {
 		convTextField.setEditable(false);
 		scrollConv.setPreferredSize(new Dimension(300, 400));
 		this.add(scrollConv, gbc);
+		ThreadsReceive t = new ThreadsReceive( this ,convTextField) ;
+		t.start() ;
 
 		// this.add(convTextField, gbc);
 

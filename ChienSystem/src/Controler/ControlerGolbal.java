@@ -43,16 +43,7 @@ public class ControlerGolbal implements ActionListener {
 			}
 		} else if (src == BackGroundImage.getImagePanel().getSendLabel()) {
 			String text = BackGroundImage.getImagePanel().getConvTextField().getText();
-			String pseudo = (String) BackGroundImage.getImagePanel().getUserTextField().getSelectedValue(); // A
-																											// MODIFIER
-																											// NE
-																											// PEUT
-																											// PAS
-																											// RESTER
-																											// ça
-																											// //
-																											// COMME
-																											// CA
+			String pseudo = (String) BackGroundImage.getImagePanel().getUserTextField().getSelectedValue(); 
 			try {
 				sendRequest(text, pseudo);
 			} catch (UnknownHostException e) {
