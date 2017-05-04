@@ -49,7 +49,7 @@ public class BackGroundImage {
 		Image image = null;
 		try {
 			//ImageIcon url = new ImageIcon(IMAGE_PATH);
-			image = ImageIO.read(new File("/home/smini/Téléchargements/images1.jpeg"));
+			image = ImageIO.read(new File("src/background.jpg"));
 			// JLabel label = new JLabel(new ImageIcon(image));
 			this.imagePanel = new ImagePanelA(image);
 			System.out.println("IMAGE PANEL CRE");
