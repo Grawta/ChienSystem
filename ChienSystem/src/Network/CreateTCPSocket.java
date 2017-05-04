@@ -10,7 +10,7 @@ import java.net.Socket;
 
 import Controler.EcritureBufferFichier;
 
-public class CreateTCPSocket extends Thread{
+public class CreateTCPSocket extends Thread {
 
 	private Socket socketCreer;
 	private ObjectOutputStream out;
@@ -31,7 +31,6 @@ public class CreateTCPSocket extends Thread{
 
 	public CreateTCPSocket(InetAddress address, int port) throws IOException {
 		socketCreer = new Socket(address, port);
-		System.out.println("BIND effectuer");
 		try {
 			this.type = false;
 		} catch (Exception e) {
@@ -42,18 +41,12 @@ public class CreateTCPSocket extends Thread{
 
 	public void run() {
 		try {
-			System.out.println("JE LANCE %ON THREAD ENCULE TA MERE");
+			
 			if (this.type) {
-				System.out.println("JE SUIS EN TRAIN DACCEPTERALORS QUE JE DEVRAIS PAS");
 				this.socketCreer = this.socketServer.accept();
 			}
-			System.out.println("Avant in");
 			this.out = new ObjectOutputStream(socketCreer.getOutputStream());
-			System.out.println("Après OUT");
 			this.in = new ObjectInputStream(socketCreer.getInputStream());
-			System.out.println("Out et In creer dans socketthread");
-			
-
 
 			while (true) {
 				Message message = (Message) in.readObject();

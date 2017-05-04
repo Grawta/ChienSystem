@@ -22,10 +22,10 @@ public class EcritureBufferFichier {
 	public static void ecritureFichier(String fichier ,String phrase) throws IOException{
 		File f = new File(fichier);
 		f.createNewFile() ;
-		FileWriter fw = new FileWriter(f);
+		FileWriter fw = new FileWriter(f, true);
 		BufferedWriter bufferWriter = new BufferedWriter(fw);
 		try {
-			bufferWriter.write(phrase+"\n");
+			bufferWriter.write(phrase);
 			bufferWriter.flush();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

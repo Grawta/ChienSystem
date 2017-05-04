@@ -31,9 +31,8 @@ public class LectureBufferFichier {
 		return fichierLu;
 	}
 
-	public static String[] lectureFichier(String nomFichier) throws IOException {
-		String [] tab =new String[1024];
-		int i = 0;
+	public static String lectureFichier(String nomFichier) throws IOException {
+		String resu = "";
 		try {
 			File f = new File(nomFichier);
 			f.createNewFile() ;
@@ -42,13 +41,10 @@ public class LectureBufferFichier {
 
 			try {
 				String line = br.readLine();
-
-				while (line != null) {
-					tab[i] = line;
-					line = br.readLine();
-					i++;
-				}
-
+				while (line != null) {			
+					resu = resu+"\n"+line;
+					line = br.readLine();					
+				}						
 				br.close();
 				fr.close();
 			} catch (IOException exception) {
@@ -57,7 +53,7 @@ public class LectureBufferFichier {
 		} catch (FileNotFoundException exception) {
 			System.out.println("Le fichier n'a pas été trouvé");
 		}
-		return tab;
+		return resu;
 	}
 
 }

@@ -10,18 +10,17 @@ import Controler.Login;
 
 public class NetworkSendDisconnect {
 
-	public void envoieDisconnect(NetworkCreateUDP global) throws IOException{
-		ControlMessage message = new ControlMessage(Login.getLogin(), SelfAddress.getLocalHostLANAddress(), 15530, "disconect");
+	public static void envoieDisconnect(NetworkCreateUDP global) throws IOException{
+		ControlMessage message = new ControlMessage(Login.getLogin(), InetAddress.getLocalHost(), 15530, "disconnect");
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ObjectOutputStream os = null;
-		global.getServeur().setBroadcast(true);
 		try {
 			os = new ObjectOutputStream(outputStream);
 			os.writeObject(message);
 			byte[] buffer = outputStream.toByteArray();
 			DatagramPacket sendPacket = new DatagramPacket(buffer, buffer.length, InetAddress.getByName("255.255.255.255"),global.getServeur().getLocalPort());
 			global.getServeur().send(sendPacket);
-			os.flush();
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

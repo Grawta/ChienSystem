@@ -20,17 +20,16 @@ public class ThreadsReceive extends Thread{
 		  }
 
 		  public void run(){
-			  String [] line; 
+			  String line; 
 		    while (true){ 
 		    	
-		    	// readLine reads the line... then throws it away !!! so keep it before testing:!!:
 		    	if(this.image.getUserTextField().getSelectedValue() !=null){
 		    		try {
 						line = (LectureBufferFichier.lectureFichier((String) this.image.getUserTextField().getSelectedValue())) ;
-						for (int i = 0; i < line.length; i++) {
+						
 							this.textArea.setText("");
-							this.textArea.setText(line[i]);	
-						}
+							this.textArea.setText(line);	
+						
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();

@@ -35,9 +35,8 @@ public class NetworkListen extends Thread {
 			while (true) {
 				ObjectInputStream testHello = serveur.recupObjectInputStream();
 				ControlMessage message = (ControlMessage) testHello.readObject();
-				if ((message.getUserAdresse() != SelfAddress.getLocalHostLANAddress())) {
+				if (userGood(message.getUserName())) {
 					if (message.getData().equals("hello")) {
-						if (userGood(message.getUserName())) {
 							ServerSocket socket = new ServerSocket(0);
 							int port = socket.getLocalPort();
 							InetAddress ip = message.getUserAdresse();
@@ -46,29 +45,22 @@ public class NetworkListen extends Thread {
 							nouveauSocket.start();
 							this.userList.ajoutUser(message.getUserName(), nouveauSocket);
 							UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
-							
-							System.out.println("Connexion avec le client : " + socket.getInetAddress());
-						} else {
-							// ErreurPseudo();
-						}
+						
 					} else if (message.getData().equals("socket_created")) {
 						while(BackGroundImage.getImagePanel()==null){sleep(1);}
 						CreateTCPSocket socket = new CreateTCPSocket(message.getUserAdresse(), message.getPort());
-						if(!(socket.getType())){
-							System.out.println("Mode Client Active  COOOOOOL");
-						}
 						socket.start();
 						if (socket==null){System.out.println("SOCKET NUL");}
-						System.out.println("connection de "+message.getUserName());
 						this.userList.ajoutUser(message.getUserName(), socket);
-						this.userList.print();
-						System.out.println("socket cre");
 						if (userList==null){System.out.println("userList NUL");}
 						if (BackGroundImage.getImagePanel()==null){System.out.println("imagePanel NUL");}
 						UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
 					} else if (message.getData().equals("disconnect")) {
+						
+						BackGroundImage.getImagePanel().getConvTextField().append("\n"+message.getUserName()+" s'est déconnecté(e) et ne recevra plus vos messages") ;
 						this.userList.removeUser(message.getUserName());
-
+						UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
+						
 					}
 				}
 			}

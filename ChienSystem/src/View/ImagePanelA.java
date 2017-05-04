@@ -31,7 +31,7 @@ public class ImagePanelA extends JPanel {
 	private JButton sendLabel;
 	private JLabel userLabel;
 	private JTextArea convTextField;
-	private JTextArea sendTextField;
+	private static JTextArea sendTextField;
 	private JList userTextField;
 	private GridBagConstraints gbc;
 	private JComboBox<String> convExistante;
@@ -51,7 +51,6 @@ public class ImagePanelA extends JPanel {
 		userTextField = new JList(defaultList);
 		scrollConv = new JScrollPane(convTextField);
 		scrollSend = new JScrollPane(sendTextField);
-		convExistante = new JComboBox<String>();
 		gbc = new GridBagConstraints();
 
 		/*
@@ -68,7 +67,6 @@ public class ImagePanelA extends JPanel {
 		convLabel.setFont(new Font("Serif", Font.ITALIC, 14));
 		this.add(convLabel, gbc);
 
-		// convTextField.setPreferredSize(new Dimension(300, 400));
 		gbc.gridx = 1;
 		gbc.anchor = GridBagConstraints.CENTER;
 		gbc.fill = GridBagConstraints.BOTH;
@@ -81,7 +79,6 @@ public class ImagePanelA extends JPanel {
 		ThreadsReceive t = new ThreadsReceive( this ,convTextField) ;
 		t.start() ;
 
-		// this.add(convTextField, gbc);
 
 		gbc.gridx = 0;
 		gbc.gridy = 1;
@@ -91,18 +88,14 @@ public class ImagePanelA extends JPanel {
 		gbc.insets = new Insets(0, 0, 0, 0);
 		this.add(sendLabel, gbc);
 
-		// sendTextField.setPreferredSize(new Dimension(200, 200));
 		gbc.gridx = 1;
 		gbc.anchor = GridBagConstraints.CENTER;
-		// gbc.gridwidth =GridBagConstraints.REMAINDER;
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.insets = new Insets(10, 10, 15, 10);
 		gbc.weighty = 0.4;
 		gbc.weightx = 0.4;
 		scrollSend.setPreferredSize(new Dimension(200, 200));
 		this.add(scrollSend, gbc);
-		// this.add(sendTextField, gbc);
-
 		gbc.gridx = 2;
 		gbc.gridy = 0;
 		gbc.gridheight = gbc.gridwidth = 1;
@@ -116,7 +109,6 @@ public class ImagePanelA extends JPanel {
 		userTextField.setPreferredSize(new Dimension(200, 400));
 		gbc.gridx = 3;
 		gbc.anchor = GridBagConstraints.LINE_START;
-		// gbc.gridheight =GridBagConstraints.REMAINDER;
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weighty = 0.8;
 		gbc.weightx = 0.2;
@@ -127,9 +119,8 @@ public class ImagePanelA extends JPanel {
 		gbc.gridy = 1;
 		gbc.weighty = 0.2;
 		gbc.anchor = GridBagConstraints.PAGE_START;
+		
 
-		this.add(convExistante);
-		//initListe("b2a");
 
 	}
 
@@ -152,26 +143,6 @@ public class ImagePanelA extends JPanel {
 		}
 	}
 
-	public void setListeDeroul(String phrase) {
-		this.convExistante.addItem("test");
-
-	}
-
-	public void initListe(String nomFichier) throws IOException {
-		String[] tabConv = LectureBufferFichier.lectureFichier(nomFichier);
-		int j = 0;
-		while (tabConv[j] != null) {
-			System.out.println(j);
-			System.out.println(tabConv[j]);
-			j++;
-		}
-		int i = 0;
-		while (tabConv[i] != null) {
-			convExistante.addItem(tabConv[i]);
-			i++;
-		}
-
-	}
 
 	public JScrollPane getScrollSend() {
 		return scrollSend;

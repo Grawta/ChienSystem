@@ -41,12 +41,6 @@ public class UserList {
 		return utilisateur;
 	}
 
-	public void print() {
-		for (User user : this.tabUser) {
-			System.out.println(user.getName() + user.getSocket().getSocketCreer().getLocalPort());
-		}
-	}
-
 	public boolean isEmpty() {
 		int i = 0;
 		for (User user : this.tabUser) {

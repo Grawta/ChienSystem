@@ -20,7 +20,13 @@ import Controler.ControlerGolbal;
 public class BackGroundImage {
 	public static final String IMAGE_PATH = "/home/nathan/Images/background.jpg";
 	private static ImagePanelA imagePanel;
-	
+	private JFrame frame;
+	public JFrame getFrame() {
+		return frame;
+	}
+
+
+
 	public static ImagePanelA getImagePanel() {
 		return imagePanel;
 	}
@@ -52,20 +58,19 @@ public class BackGroundImage {
 			image = ImageIO.read(new File("src/background.jpg"));
 			// JLabel label = new JLabel(new ImageIcon(image));
 			this.imagePanel = new ImagePanelA(image);
-			System.out.println("IMAGE PANEL CRE");
 			if (imagePanel==null){System.out.println("imagePanel NUL");}
 			JFrame frame = new JFrame("Chien Sytem !!");
 			frame.getContentPane().add(imagePanel);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.pack();
 			frame.setMinimumSize(new Dimension(1000,900));
 			frame.setLocationRelativeTo(null);
 			imagePanel.getSendLabel().addActionListener(controler) ;
+			frame.addWindowListener(controler);
 			frame.setVisible(true);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 	
 
