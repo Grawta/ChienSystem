@@ -21,9 +21,8 @@ public class CreateTCPSocket extends Thread{
 	public CreateTCPSocket(ServerSocket socket) throws IOException {
 		this.socketServer = socket;
 		try {
-			type = true;
-			this.start();
-
+			this.type = true;
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,9 +31,9 @@ public class CreateTCPSocket extends Thread{
 
 	public CreateTCPSocket(InetAddress address, int port) throws IOException {
 		socketCreer = new Socket(address, port);
+		System.out.println("BIND effectuer");
 		try {
-			type = false;
-			this.start();
+			this.type = false;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -43,17 +42,23 @@ public class CreateTCPSocket extends Thread{
 
 	public void run() {
 		try {
-			if (type) {
+			System.out.println("JE LANCE %ON THREAD ENCULE TA MERE");
+			if (this.type) {
+				System.out.println("JE SUIS EN TRAIN DACCEPTERALORS QUE JE DEVRAIS PAS");
 				this.socketCreer = this.socketServer.accept();
 			}
-			this.in = new ObjectInputStream(socketCreer.getInputStream());
+			System.out.println("Avant in");
 			this.out = new ObjectOutputStream(socketCreer.getOutputStream());
+			System.out.println("Après OUT");
+			this.in = new ObjectInputStream(socketCreer.getInputStream());
+			System.out.println("Out et In creer dans socketthread");
+			
+
 
 			while (true) {
 				Message message = (Message) in.readObject();
 				String userPseudo = message.getSrcPseudo();
-				FileWriter fUserPseudo = new FileWriter(userPseudo);
-				EcritureBufferFichier.ecritureFichier(fUserPseudo, userPseudo+" : "+ message.getData() + "\n");
+				EcritureBufferFichier.ecritureFichier(userPseudo, userPseudo+" : "+ message.getData() + "\n");
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -61,15 +66,18 @@ public class CreateTCPSocket extends Thread{
 	}
 
 	public Socket getSocketCreer() {
-		return socketCreer;
+		return this.socketCreer;
 	}
 
 	public ObjectOutputStream getOut() {
-		return out;
+		return this.out;
 	}
 
 	public ObjectInputStream getIn() {
-		return in;
+		return this.in;
+	}
+	public Boolean getType(){
+		return this.type;
 	}
 
 }

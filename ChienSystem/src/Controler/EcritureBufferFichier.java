@@ -1,6 +1,9 @@
 package Controler;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -16,8 +19,11 @@ public class EcritureBufferFichier {
 		}
 	}
 	
-	public static void ecritureFichier(FileWriter writer,String phrase){
-		BufferedWriter bufferWriter = new BufferedWriter(writer);
+	public static void ecritureFichier(String fichier ,String phrase) throws IOException{
+		File f = new File(fichier);
+		f.createNewFile() ;
+		FileWriter fw = new FileWriter(f);
+		BufferedWriter bufferWriter = new BufferedWriter(fw);
 		try {
 			bufferWriter.write(phrase+"\n");
 			bufferWriter.flush();

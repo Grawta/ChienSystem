@@ -1,6 +1,7 @@
 package ChienSystem;
 import java.io.IOException;
 import Controler.ControlerGolbal;
+import Controler.EcritureBufferFichier;
 
 public class MainTest {
 

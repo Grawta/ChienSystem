@@ -43,6 +43,7 @@ public class NetworkListen extends Thread {
 							InetAddress ip = message.getUserAdresse();
 							envoiSocketCreate(serveur, port, ip);
 							CreateTCPSocket nouveauSocket = new CreateTCPSocket(socket);
+							nouveauSocket.start();
 							this.userList.ajoutUser(message.getUserName(), nouveauSocket);
 							UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
 							
@@ -53,6 +54,10 @@ public class NetworkListen extends Thread {
 					} else if (message.getData().equals("socket_created")) {
 						while(BackGroundImage.getImagePanel()==null){sleep(1);}
 						CreateTCPSocket socket = new CreateTCPSocket(message.getUserAdresse(), message.getPort());
+						if(!(socket.getType())){
+							System.out.println("Mode Client Active  COOOOOOL");
+						}
+						socket.start();
 						if (socket==null){System.out.println("SOCKET NUL");}
 						System.out.println("connection de "+message.getUserName());
 						this.userList.ajoutUser(message.getUserName(), socket);

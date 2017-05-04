@@ -27,6 +27,7 @@ public class ControlerGolbal implements ActionListener {
 		this.ihmLogin = new IhmLoginStart(this);
 		this.network = null;
 		this.backGround = null;
+		
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
@@ -36,6 +37,7 @@ public class ControlerGolbal implements ActionListener {
 				Login.setLogin(IhmLogin.getFieldLog().getText());
 				this.ihmLogin.getFrameNew().dispose();
 				this.backGround = new BackGroundImage(this);
+
 				network = new NetworkGlobal();
 
 			} catch (IOException e) {
@@ -44,8 +46,15 @@ public class ControlerGolbal implements ActionListener {
 		} else if (src == BackGroundImage.getImagePanel().getSendLabel()) {
 			String text = BackGroundImage.getImagePanel().getConvTextField().getText();
 			String pseudo = (String) BackGroundImage.getImagePanel().getUserTextField().getSelectedValue(); 
+			System.out.println("BOUTON SEND APPUYE");
 			try {
 				sendRequest(text, pseudo);
+				try {
+					EcritureBufferFichier.ecritureFichier(pseudo, Login.getLogin()+" : "+ text + "\n");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (UnknownHostException e) {
 				e.printStackTrace();
 			}
@@ -88,6 +97,9 @@ public class ControlerGolbal implements ActionListener {
 			System.out.println("USER NUL");
 		}
 		ObjectOutputStream os = user.getSocket().getOut();
+		if(os ==null){
+			System.out.println("OS null");
+		}
 		try {
 			os.writeObject(message);
 			os.flush();

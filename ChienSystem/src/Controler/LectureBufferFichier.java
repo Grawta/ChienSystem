@@ -31,11 +31,12 @@ public class LectureBufferFichier {
 		return fichierLu;
 	}
 
-	public static String[] lectureFichier(String nomFichier) {
+	public static String[] lectureFichier(String nomFichier) throws IOException {
 		String [] tab =new String[1024];
 		int i = 0;
 		try {
 			File f = new File(nomFichier);
+			f.createNewFile() ;
 			FileReader fr = new FileReader(f);
 			BufferedReader br = new BufferedReader(fr);
 

@@ -8,6 +8,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.io.IOException;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -36,7 +37,7 @@ public class ImagePanelA extends JPanel {
 	private JComboBox<String> convExistante;
 	private DefaultListModel<String> defaultList;
 
-	public ImagePanelA(Image image) {
+	public ImagePanelA(Image image) throws IOException {
 		this.image = image;
 		setLayout(new GridBagLayout());
 
@@ -128,7 +129,7 @@ public class ImagePanelA extends JPanel {
 		gbc.anchor = GridBagConstraints.PAGE_START;
 
 		this.add(convExistante);
-		initListe("b2a");
+		//initListe("b2a");
 
 	}
 
@@ -156,7 +157,7 @@ public class ImagePanelA extends JPanel {
 
 	}
 
-	public void initListe(String nomFichier) {
+	public void initListe(String nomFichier) throws IOException {
 		String[] tabConv = LectureBufferFichier.lectureFichier(nomFichier);
 		int j = 0;
 		while (tabConv[j] != null) {

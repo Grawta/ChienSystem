@@ -60,6 +60,7 @@ public class BackGroundImage {
 			frame.pack();
 			frame.setMinimumSize(new Dimension(1000,900));
 			frame.setLocationRelativeTo(null);
+			imagePanel.getSendLabel().addActionListener(controler) ;
 			frame.setVisible(true);
 		} catch (IOException e) {
 			e.printStackTrace();
