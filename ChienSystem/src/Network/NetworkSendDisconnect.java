@@ -11,7 +11,7 @@ import Controler.Login;
 public class NetworkSendDisconnect {
 
 	public static void envoieDisconnect(NetworkCreateUDP global) throws IOException{
-		ControlMessage message = new ControlMessage(Login.getLogin(), InetAddress.getLocalHost(), 15530, "disconnect");
+		ControlMessage message = new ControlMessage(Login.getLogin(), InetAddress.getLocalHost(), 15530, "bye");
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 		ObjectOutputStream os = null;
 		try {

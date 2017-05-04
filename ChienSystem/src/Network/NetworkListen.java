@@ -55,12 +55,11 @@ public class NetworkListen extends Thread {
 						if (userList==null){System.out.println("userList NUL");}
 						if (BackGroundImage.getImagePanel()==null){System.out.println("imagePanel NUL");}
 						UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
-					} else if (message.getData().equals("disconnect")) {
-						
+					} else if (message.getData().equals("bye")) {
+						this.testReceiveJUnit(message); 
 						BackGroundImage.getImagePanel().getConvTextField().append("\n"+message.getUserName()+" s'est déconnecté(e) et ne recevra plus vos messages") ;
 						this.userList.removeUser(message.getUserName());
-						UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);
-						
+						UpdateListUser.miseAJour(BackGroundImage.getImagePanel().getDefaultList(),this.userList);			
 					}
 				}
 			}
@@ -68,7 +67,9 @@ public class NetworkListen extends Thread {
 			e.printStackTrace();
 		}
 	}
-
+	protected void testReceiveJUnit(ControlMessage message) {
+		// TODO Auto-generated method stub		
+	}
 	public void run() {
 		try {
 			traitements(this.serveur);
@@ -98,5 +99,7 @@ public class NetworkListen extends Thread {
 		serveur.getServeur().send(sendPacket);
 		os.flush();
 	}
+
+	
 
 }

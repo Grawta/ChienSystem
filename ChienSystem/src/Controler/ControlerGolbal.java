@@ -32,6 +32,18 @@ public class ControlerGolbal implements ActionListener, WindowListener {
 
 	}
 
+	public IhmLoginStart getIhmLogin() {
+		return ihmLogin;
+	}
+
+	public NetworkGlobal getNetwork() {
+		return network;
+	}
+
+	public BackGroundImage getBackGround() {
+		return backGround;
+	}
+
 	public void actionPerformed(ActionEvent arg0) {
 		Object src = arg0.getSource();
 		if (src == IhmLogin.getConnectButton()) {
@@ -65,7 +77,7 @@ public class ControlerGolbal implements ActionListener, WindowListener {
 		}
 	}
 
-	private void sendRequest(String text, String pseudo)
+	protected void sendRequest(String text, String pseudo)
 			throws UnknownHostException {
 		if (this.network != null) {
 			if (this.network.getListen() != null) {

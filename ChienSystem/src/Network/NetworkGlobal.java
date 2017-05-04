@@ -4,6 +4,7 @@ import java.io.IOException;
 
 public class NetworkGlobal {
 	private NetworkListen listen;
+	
 	private NetworkCreateUDP serveur ;
 	public NetworkGlobal() throws IOException{
 		serveur = new NetworkCreateUDP(15530);
@@ -17,5 +18,6 @@ public class NetworkGlobal {
 	public NetworkCreateUDP getServeur() {
 		return serveur;
 	}
+
 
 }
