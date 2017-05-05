@@ -46,7 +46,8 @@ public class testJUnit {
 	static NetworkGlobalExtend global ;
 	static ControlerGolbalExtend controler ;
 	static String login = Login.getLogin();
-
+	
+	
 
 
 	/**
@@ -91,6 +92,7 @@ public class testJUnit {
 	 * @author nathan
 	 *
 	 */
+	
 	protected class NetworkListenExtend extends NetworkListen {
 		private boolean verifMessage;
 		
