@@ -1,4 +1,4 @@
-package Network;
+package network;
 
 import java.io.Serializable;
 import java.net.Inet4Address;

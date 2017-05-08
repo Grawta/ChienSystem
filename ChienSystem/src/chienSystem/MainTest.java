@@ -1,7 +1,8 @@
-package ChienSystem;
+package chienSystem;
 import java.io.IOException;
-import Controler.ControlerGolbal;
-import Controler.EcritureBufferFichier;
+
+import controler.ControlerGolbal;
+import controler.EcritureBufferFichier;
 
 public class MainTest {
 

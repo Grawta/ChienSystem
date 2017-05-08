@@ -1,4 +1,4 @@
-package Network;
+package network;
 
 public class User {
 	private String name;

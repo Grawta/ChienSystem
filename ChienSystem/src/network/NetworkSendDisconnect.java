@@ -1,4 +1,4 @@
-package Network;
+package network;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 
-import Controler.Login;
+import controler.Login;
 
 public class NetworkSendDisconnect {
 

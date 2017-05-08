@@ -1,4 +1,4 @@
-package Network;
+package network;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileWriter;
@@ -9,10 +9,11 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import ChienSystem.*;
-import Controler.*;
-import View.BackGroundImage;
-import View.ImagePanelA;
+
+import chienSystem.*;
+import controler.*;
+import view.BackGroundImage;
+import view.ImagePanelA;
 
 public class NetworkListen extends Thread {
 

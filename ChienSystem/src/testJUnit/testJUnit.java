@@ -17,21 +17,21 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import Controler.ControlerGolbal;
-import Controler.EcritureBufferFichier;
-import Controler.LectureBufferFichier;
-import Controler.Login;
-import Network.ControlMessage;
-import Network.CreateTCPSocket;
-import Network.Message;
-import Network.NetworkCreateUDP;
-import Network.NetworkGlobal;
-import Network.NetworkListen;
-import Network.NetworkSendDisconnect;
-import Network.NetworkSendHello;
-import Network.SelfAddress;
-import Network.User;
-import Network.UserList;
+import controler.ControlerGolbal;
+import controler.EcritureBufferFichier;
+import controler.LectureBufferFichier;
+import controler.Login;
+import network.ControlMessage;
+import network.CreateTCPSocket;
+import network.Message;
+import network.NetworkCreateUDP;
+import network.NetworkGlobal;
+import network.NetworkListen;
+import network.NetworkSendDisconnect;
+import network.NetworkSendHello;
+import network.SelfAddress;
+import network.User;
+import network.UserList;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class testJUnit {

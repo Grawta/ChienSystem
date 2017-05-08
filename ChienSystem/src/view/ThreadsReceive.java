@@ -1,4 +1,4 @@
-package View;
+package view;
 
 
 
@@ -6,7 +6,7 @@ import java.io.*;
 
 import javax.swing.*;
 
-import Controler.LectureBufferFichier;
+import controler.LectureBufferFichier;
 
 public class ThreadsReceive extends Thread{
 	

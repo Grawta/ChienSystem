@@ -1,4 +1,4 @@
-package Network;
+package network;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import Controler.EcritureBufferFichier;
+import controler.EcritureBufferFichier;
 
 public class CreateTCPSocket extends Thread {
 

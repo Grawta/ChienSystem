@@ -1,11 +1,11 @@
-package Controler;
+package controler;
 
 import java.util.ArrayList;
 
 import javax.swing.DefaultListModel;
 
-import Network.User;
-import Network.UserList;
+import network.User;
+import network.UserList;
 
 public class UpdateListUser {
 	

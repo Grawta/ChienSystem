@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import Controler.ControlerGolbal;
+import controler.ControlerGolbal;
 
 public class IhmLoginStart extends JFrame implements ActionListener{
 	private static JFrame frameNew;

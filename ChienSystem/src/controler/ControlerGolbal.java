@@ -1,4 +1,4 @@
-package Controler;
+package controler;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,15 +10,15 @@ import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import Network.ControlMessage;
-import Network.CreateTCPSocket;
-import Network.Message;
-import Network.NetworkGlobal;
-import Network.NetworkSendDisconnect;
-import Network.User;
-import View.BackGroundImage;
-import View.IhmLogin;
-import View.IhmLoginStart;
+import network.ControlMessage;
+import network.CreateTCPSocket;
+import network.Message;
+import network.NetworkGlobal;
+import network.NetworkSendDisconnect;
+import network.User;
+import view.BackGroundImage;
+import view.IhmLogin;
+import view.IhmLoginStart;
 
 public class ControlerGolbal implements ActionListener, WindowListener {
 	private IhmLoginStart ihmLogin;

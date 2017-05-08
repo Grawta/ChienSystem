@@ -1,12 +1,13 @@
-package Network;
+package network;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
-import ChienSystem.*;
-import Controler.Login;
+
+import chienSystem.*;
+import controler.Login;
 
 
 public class NetworkSendHello {

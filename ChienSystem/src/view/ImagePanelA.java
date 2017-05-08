@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -18,7 +18,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import Controler.LectureBufferFichier;
+
+import controler.LectureBufferFichier;
 
 @SuppressWarnings("serial")
 public class ImagePanelA extends JPanel {

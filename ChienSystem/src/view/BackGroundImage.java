@@ -1,4 +1,4 @@
-package View;
+package view;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -15,7 +15,7 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import Controler.ControlerGolbal;
+import controler.ControlerGolbal;
 
 public class BackGroundImage {
 	public static final String IMAGE_PATH = "/home/nathan/Images/background.jpg";
