@@ -46,8 +46,8 @@ public class testJUnit {
 	static NetworkGlobalExtend global ;
 	static ControlerGolbalExtend controler ;
 	static String login = Login.getLogin();
-	
-	
+
+
 
 
 	/**
@@ -68,9 +68,9 @@ public class testJUnit {
 		}
 
 	}
-	
+
 	private static class NetworkSendDisconnectExtend extends NetworkSendDisconnect {
-		
+
 		public static void envoieDisconnect(NetworkCreateUDP global) throws IOException{
 			ControlMessage message = new ControlMessage("Jean", InetAddress.getLocalHost(), 25000, "bye");
 			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -92,18 +92,17 @@ public class testJUnit {
 	 * @author nathan
 	 *
 	 */
-	
+
 	protected class NetworkListenExtend extends NetworkListen {
 		private boolean verifMessage;
-		
+
 		public NetworkListenExtend(NetworkCreateUDP serveur) throws IOException {
 			super(serveur);
 			this.verifMessage = false;
 		}
-		
+
 		public void testReceiveJUnit(ControlMessage message) {		
 			if(message.getData().equals("bye")){
-				System.out.println("MEssage recu = BYe");
 				this.setVerifMessage(true);
 			}else{
 				this.setVerifMessage(false);
@@ -153,10 +152,6 @@ public class testJUnit {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void test() {
-		Assert.assertTrue(1 == 1);
-	}
 
 	@Test
 	public void test01CreationServerSocketTCP() {
@@ -240,11 +235,10 @@ public class testJUnit {
 	public void test09NetworkGlobal(){
 		try {
 			global = new NetworkGlobalExtend();
-			
+
 			NetworkSendDisconnectExtend.envoieDisconnect(global.getServeur());
 			Thread.sleep(100);
 			boolean test = global.getListenExtend().isVerifMessage();
-			System.out.println(test);
 			Assert.assertTrue(test);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -257,12 +251,8 @@ public class testJUnit {
 	@Test
 	public void test10Controller(){
 		controler = new ControlerGolbalExtend();
-
 	}
 
-	@Test
-	public void test11SendRequest(){
-		controler.callRequest("testToto","testUser");
-	}
+
 
 }
