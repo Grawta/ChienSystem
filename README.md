@@ -45,3 +45,8 @@ Rapport de Test
 - test08CreationControlMessage → Succès
 - test09NetworkGlobal → Succès
 - test10Controller → Succès
+
+Test de groupe
+	
+	Nous avons effectué des testdes fonctions citées si dessus avec d'autres groupes et les tests se sont revelés positifs.
+
