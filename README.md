@@ -48,5 +48,5 @@ Rapport de Test
 
 Test de groupe
 	
-	Nous avons effectué des testdes fonctions citées si dessus avec d'autres groupes et les tests se sont revelés positifs.
+	Nous avons effectué des test sur les fonctions citées si dessus avec d'autres groupes et les tests se sont revelés positifs.
 
